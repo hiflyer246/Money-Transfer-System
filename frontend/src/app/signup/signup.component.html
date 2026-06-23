@@ -1,0 +1,90 @@
+<section class="signup-shell">
+  <div class="ambient-orbit"></div>
+  <div class="signup-grid">
+    <div class="signup-panel">
+      <div class="brand">
+        <span class="brand-mark">PF</span>
+        <div>
+          <p class="brand-name">PayFid</p>
+          <p class="brand-tag">Secure access to global payouts</p>
+        </div>
+      </div>
+
+      <mat-card class="card">
+        <header class="card-header">
+          <div class="headline">
+            <h1>Create your <span class="brand-accent">PayFid</span> account</h1>
+          </div>
+        </header>
+
+        <div *ngIf="otpToastMessage" class="otp-toast success">{{ otpToastMessage }}</div>
+        <div *ngIf="otpError" class="otp-toast error">{{ otpError }}</div>
+        <div *ngIf="otpAttemptError" class="otp-toast warning">{{ otpAttemptError }}</div>
+
+        <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" placeholder="Enter your username" autocomplete="username"
+              formControlName="username" />
+            <mat-error *ngIf="form.get('username')?.hasError('required')">Username is required</mat-error>
+            <mat-error *ngIf="form.get('username')?.hasError('minlength')">Must be at least 3 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Enter your email" autocomplete="email"
+              formControlName="email" />
+            <mat-error *ngIf="form.get('email')?.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="form.get('email')?.hasError('email')">Please enter a valid email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>Create new password</mat-label>
+            <input matInput type="password" placeholder="At least 8 characters" autocomplete="new-password"
+              formControlName="password" />
+            <mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
+            <mat-error *ngIf="form.get('password')?.hasError('minlength')">Password must be at least 8 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>Confirm password</mat-label>
+            <input matInput type="password" placeholder="Re-enter your password" autocomplete="new-password"
+              formControlName="confirmPassword" />
+            <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">Please confirm your password</mat-error>
+            <mat-error *ngIf="form.get('confirmPassword')?.hasError('passwordMismatch')">Passwords do not match</mat-error>
+          </mat-form-field>
+
+          <div class="actions-row">
+            <button class="primary" mat-flat-button type="button" *ngIf="step === 'SIGNUP'" (click)="sendOtp()" [disabled]="otpSending">
+              {{ otpSending ? 'Sending OTP...' : 'Send verification OTP' }}
+            </button>
+            <button class="primary" mat-flat-button type="submit" *ngIf="step === 'VERIFIED'" [disabled]="loading">
+              {{ loading ? 'Creating account...' : 'Create account' }}
+            </button>
+          </div>
+
+          <div class="otp-panel" *ngIf="step === 'OTP_SENT'">
+            <p class="otp-status">OTP sent to {{ form.get('email')?.value }}.</p>
+            <p class="otp-hint">Expires in {{ otpCountdown }}; resend in {{ resendSecondsRemaining }}s.</p>
+
+            <mat-form-field appearance="outline" class="field otp-field">
+              <mat-label>Enter 6-digit OTP</mat-label>
+              <input matInput type="text" maxlength="6" placeholder="000000" formControlName="otp" />
+            </mat-form-field>
+
+            <div class="otp-controls">
+              <button mat-stroked-button type="button" (click)="verifyOtp()" [disabled]="otpSending">Verify OTP</button>
+              <button mat-button type="button" (click)="resendOtp()" [disabled]="resendDisabled || otpSending">Resend OTP</button>
+            </div>
+          </div>
+        </form>
+
+
+        <p class="footnote">
+          Already have an account?
+          <a class="link" mat-button routerLink="/">Sign in</a>
+        </p>
+      </mat-card>
+    </div>
+  </div>
+</section>
