@@ -244,11 +244,6 @@ Submit a Pull Request through GitHub.
 * Transaction Validation
 * Balance Updates
 
-### Analytics APIs
-
-* Spending Analytics
-* Transaction Statistics
-
 ### Rewards APIs
 
 * Reward Summary
