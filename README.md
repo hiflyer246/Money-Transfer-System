@@ -178,33 +178,6 @@ git push origin feature-name
 
 Submit a Pull Request through GitHub.
 
----
-
-## Contributor Expectations
-
-Please follow the guidelines below before submitting contributions:
-
-* Follow Java and Angular coding standards.
-* Write meaningful commit messages.
-* Test all features before submission.
-* Keep pull requests focused on one feature.
-* Create issues for major changes.
-* Maintain code readability and documentation.
-* Ensure APIs remain backward compatible where possible.
-
----
-
-## Known Issues
-
-Current limitations and planned improvements:
-
-* Limited third-party payment integration.
-* Email notification service requires further enhancement.
-* Additional fraud detection mechanisms can be implemented.
-* Advanced reporting and statement generation can be improved.
-* Mobile responsiveness can be optimized further.
-
----
 
 ## Future Enhancements
 
