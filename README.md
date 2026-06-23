@@ -1,9 +1,5 @@
 # Money Transfer System
 
-## Secure Banking and Digital Fund Transfer Platform built with Spring Boot, Angular, JWT Authentication, and MySQL Database.
-
----
-
 ## About
 
 Money Transfer System (MTS) is a full-stack banking application that enables users to securely manage accounts, transfer money, track transaction history, and monitor financial activity through interactive analytics dashboards.
