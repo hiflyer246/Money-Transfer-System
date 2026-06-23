@@ -1,6 +1,6 @@
 # Money Transfer System
 
-## Secure Banking and Digital Fund Transfer Platform built with Spring Boot, Angular, JWT Authentication, and H2/MySQL Database.
+## Secure Banking and Digital Fund Transfer Platform built with Spring Boot, Angular, JWT Authentication, and MySQL Database.
 
 ---
 
@@ -22,7 +22,7 @@ The project demonstrates enterprise-level software development concepts includin
 * Password Reset Functionality
 * Profile Management
 * RESTful API Architecture
-* H2 and MySQL Database Support
+* MySQL Database Support
 
 ---
 
@@ -52,7 +52,7 @@ The project demonstrates enterprise-level software development concepts includin
                               |
                               ▼
                     +------------------+
-                    | H2 / MySQL DB    |
+                    |      MySQL DB    |
                     +------------------+
 ```
 
