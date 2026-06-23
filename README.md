@@ -240,8 +240,6 @@ Current limitations and planned improvements:
 * REST APIs
 
 ### Database
-
-* H2 Database
 * MySQL
 
 ### Build Tools
